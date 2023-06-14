@@ -14,13 +14,14 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Projects::all();
-        return view('main.product.index', compact('projects'));
+        return view('adminHome', compact('projects'));
     }
 
     public function indexProject(){
         $projects = Projects::all();
-        return view('main.product.product', compact('projects'));
+        return view('main.userView', compact('projects'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -58,7 +59,7 @@ class ProjectsController extends Controller
      */
     public function show(Projects $projects)
     {
-        //
+        return view('main.product.show', compact('projects'));
     }
 
     /**
@@ -82,17 +83,35 @@ class ProjectsController extends Controller
     
         $input = $request->all();
     
+        // if ($image = $request->file('image')) {
+        //     $destinationPath = 'projects_image/';
+        //     $projectImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $projectImage);
+        //     $input['image'] = "$projectImage";
+        // }
         if ($image = $request->file('image')) {
+            // Hapus gambar lama jika ada
+            if ($projects->image) {
+                $oldImagePath = public_path('projects_image/' . $projects->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+    
+            // Pindahkan dan simpan gambar baru
             $destinationPath = 'projects_image/';
             $projectImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $projectImage);
-            $input['image'] = "$projectImage";
+            $input['image'] = $projectImage;
         }
+
+
     
         $projects->update($input);
-    
+
         return redirect()->route('product.index')
             ->with('success', 'Product updated successfully.');
+        
     }
 
     /**
@@ -100,6 +119,15 @@ class ProjectsController extends Controller
      */
     public function destroy(Projects $projects)
     {
-        //
+
+        $imagePath = public_path('projects_image/' . $projects->image);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        $projects->delete();
+
+        return redirect()->route('product.index')
+            ->with('success', 'Project deleted successfully.');
     }
 }

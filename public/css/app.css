@@ -1,0 +1,10 @@
+/* import custom components */
+
+@import url('./components/button.css');
+@import url('./components/other.css');
+@import url('./components/text.css');
+@import url('./components/nav.css');
+@import url('./components/service.css');
+
+/* import other */
+@import url('./components/color.css');

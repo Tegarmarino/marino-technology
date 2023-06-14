@@ -1,0 +1,42 @@
+@import url('../variable.css');
+
+/*  Color */
+.color-black{
+    color: var(--black);
+}
+.color-white{
+    color: var(--white);
+}
+.color-red{
+    color: var(--main-red);
+}
+.color-white-smoke{
+    color: var(--white-smoke);
+}
+.color-grey{
+    color: var(--grey);
+}
+.color-onyx{
+    color: var(--onyx);
+}
+
+
+/* Background */
+.background-black{
+    background-color: var(--black);
+}
+.background-white{
+    background-color: var(--white);
+}
+.background-red{
+    background-color: var(--main-red);
+}
+.background-white-smoke{
+    background-color: var(--white-smoke);
+}
+.background-grey{
+    background-color: var(--grey);
+}
+.background-onyx{
+    background-color: var(--onyx);
+}

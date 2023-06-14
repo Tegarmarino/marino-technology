@@ -24,8 +24,8 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('product.edit', $projects->id) }}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+            <form action="{{ route('product.update', $projects->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Project name <span class="text-danger">*</span></label>

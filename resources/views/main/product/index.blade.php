@@ -41,12 +41,12 @@
                                 <td><a href="http://{{ $val->link }}" target="blank">{{ $val->link }}</a></td>
                                 <td>{{ $val->created_at }}</td>
                                 <td>
-                                    <form action="{{ route('product.destroy', $val->id) }}" method="POST">
-                                        {{ csrf_field() }}
+                                    <form action="{{ route('product.destroy',$val->id) }}" method="POST">
+                                        {{ csrf_field()  }}
                                         @method('DELETE')
-                                        <a class="btn btn-sm btn-success" href="{{ route('product.show', $val->id) }}">Show</a>
-                                        <a class="btn btn-sm btn-warning" href="{{ route('product.edit', $val->id) }}">Edit</a>
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        <a class="btn btn-sm btn-success" href="{{route('product.show', $val->id)}}"><i data-feather="eye"></i> Show</a>
+                                        <a class="btn btn-sm btn-warning" href="{{route('product.edit', $val->id)}}"><i data-feather="link"></i> Edit</a>
+                                        <button class="btn btn-sm btn-danger" type="submit"><i data-feather="trash"></i> Delete</button>
                                     </form>
                                 </td>
                              </tr>

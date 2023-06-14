@@ -1,0 +1,14 @@
+@import url(../variable.css);
+
+.outline-button{
+    border: solid var(--main-red);
+    background-color: transparent;
+    border-radius: 15px;
+    color: var(--main-red);
+    transition: background-color 0.5s;
+}
+.outline-button:hover{
+    background-color: var(--main-red);
+    color: var(--white);
+    border-radius: 15px;
+}

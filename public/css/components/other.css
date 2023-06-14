@@ -1,0 +1,10 @@
+@import url('../variable.css');
+
+a:hover {
+    color: var(--main-red);
+}
+
+.red-shape {
+    width: 100%;
+    background-color: var(--main-red);
+}

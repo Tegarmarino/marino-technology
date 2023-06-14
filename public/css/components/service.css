@@ -1,0 +1,33 @@
+@import url('../variable.css');
+
+.service-button {
+    border-radius: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: var(--main-red);
+}
+
+.service-card{
+    background-color: #fdfdff;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 1s;
+}
+
+.service-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25), 0 0 20px #fe1717;
+}
+
+.best-seller-service-card-inner{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #fdfdff;
+}
+
+.best-seller-service-card-outer{
+    background-color: #fe1717;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
